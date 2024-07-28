@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="header">Add New Plant</h2>
+<form method="POST" id="add-plant-form">
+    <div class="row">
+        <div class="input-field col s12">
+            <input type="text" id="name" name="name" required>
+            <label for="name">Plant Name</label>
+        </div>
+        <div class="input-field col s12">
+            <select id="watering" name="watering" required>
+                <option value="" disabled selected>Choose watering frequency</option>
+                <option value="Daily">Daily</option>
+                <option value="Weekly">Weekly</option>
+                <option value="Bi-weekly">Bi-weekly</option>
+                <option value="Monthly">Monthly</option>
+            </select>
+            <label>Watering Frequency</label>
+        </div>
+        <div class="input-field col s12">
+            <select id="environment" name="environment" required>
+                <option value="" disabled selected>Choose environment</option>
+                <option value="Indoor">Indoor</option>
+                <option value="Outdoor">Outdoor</option>
+                <option value="Both">Both</option>
+            </select>
+            <label>Environment</label>
+        </div>
+        <div class="col s12">
+            <label>
+                <input type="checkbox" id="fruit" name="fruit" />
+                <span>Fruit-bearing</span>
+            </label>
+        </div>
+        <div class="input-field col s12">
+            <select id="care_level" name="care_level" required>
+                <option value="" disabled selected>Choose care level</option>
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+            </select>
+            <label>Care Level</label>
+        </div>
+    </div>
+    <button class="btn waves-effect waves-light" type="submit">Add Plant
+        <i class="material-icons right">send</i>
+    </button>
+</form>
+{% endblock %}
