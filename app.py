@@ -49,3 +49,9 @@ def delete_plant(id):
     db.session.delete(plant)
     db.session.commit()
     return redirect(url_for('index'))
+
+# View plant
+@app.route('/view/<int:id>')
+def view_plant(id):
+    plant = Plant.query.get_or_404(id)
+    return render_template('view_plant.html', plant=plant)
