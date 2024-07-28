@@ -41,3 +41,11 @@ def edit_plant(id):
         db.session.commit()
         return redirect(url_for('index'))
     return render_template('edit_plant.html', plant=plant)
+
+# Delete plant 
+@app.route('/delete/<int:id>')
+def delete_plant(id):
+    plant = Plant.query.get_or_404(id)
+    db.session.delete(plant)
+    db.session.commit()
+    return redirect(url_for('index'))
