@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="header">Edit Plant</h2>
+<form method="POST" id="edit-plant-form">
+    <div class="row">
+        <div class="input-field col s12">
+            <input type="text" id="name" name="name" value="{{ plant.name }}" required>
+            <label for="name">Plant Name</label>
+        </div>
+        <div class="input-field col s12">
+            <select id="watering" name="watering" required>
+                <option value="Daily" {% if plant.watering == 'Daily' %}selected{% endif %}>Daily</option>
+                <option value="Weekly" {% if plant.watering == 'Weekly' %}selected{% endif %}>Weekly</option>
+                <option value="Bi-weekly" {% if plant.watering == 'Bi-weekly' %}selected{% endif %}>Bi-weekly</option>
+                <option value="Monthly" {% if plant.watering == 'Monthly' %}selected{% endif %}>Monthly</option>
+            </select>
+            <label>Watering Frequency</label>
+        </div>
+        <div class="input-field col s12">
+            <select id="environment" name="environment" required>
+                <option value="Indoor" {% if plant.environment == 'Indoor' %}selected{% endif %}>Indoor</option>
+                <option value="Outdoor" {% if plant.environment == 'Outdoor' %}selected{% endif %}>Outdoor</option>
+                <option value="Both" {% if plant.environment == 'Both' %}selected{% endif %}>Both</option>
+            </select>
+            <label>Environment</label>
+        </div>
+        <div class="col s12">
+            <label>
+                <input type="checkbox" id="fruit" name="fruit" {% if plant.fruit %}checked{% endif %} />
+                <span>Fruit-bearing</span>
+            </label>
+        </div>
+        <div class="input-field col s12">
+            <select id="care_level" name="care_level" required>
+                <option value="Easy" {% if plant.care_level == 'Easy' %}selected{% endif %}>Easy</option>
+                <option value="Medium" {% if plant.care_level == 'Medium' %}selected{% endif %}>Medium</option>
+                <option value="Hard" {% if plant.care_level == 'Hard' %}selected{% endif %}>Hard</option>
+            </select>
+            <label>Care Level</label>
+        </div>
+    </div>
+    <button class="btn waves-effect waves-light" type="submit">Update Plant
+        <i class="material-icons right">send</i>
+    </button>
+    <a href="{{ url_for('index') }}" class="btn waves-effect waves-light red">Cancel
+        <i class="material-icons right">cancel</i>
+    </a>
+</form>
+{% endblock %}
